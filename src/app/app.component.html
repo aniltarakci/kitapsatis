@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">ANA SAYFA</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="ask">Aşk Kitapları</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="bilim">Bilim Kitapları</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="cocuk">Çocuk Kitapları</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="klasik">Klasik Kitaplar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="polisiye">Polisiye Kitapları</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="psikoloji">Psikoloji Kitapları</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="roman">Roman Kitapları</a>
+        </li>
+      </ul>
+
+      <a href="girisyap" class="btn btn-outline-success" style="margin-right: 10px;" *ngIf="fbService.OturumKapaliyken()">Giriş Yap</a>
+      <a href="uyeol" class="btn btn-outline-warning" *ngIf="fbService.OturumKapaliyken()">Üye Ol</a>
+
+      <div class="dropdown" style="margin-right: 10px;">
+        <a class="btn btn-secondary dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"aria-expanded="false" *ngIf="fbService.OturumAcikken()">
+            Profilim (<b style="color: white;">{{kullaniciadi}}</b>)
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="siparislerim">Siparişlerim</a></li>
+            <li><a class="dropdown-item" href="sepetim">Sepetim</a></li>
+            <li><a class="dropdown-item" href="hesapbilgilerim">Hesap Bilgilerim</a></li>
+            <li><a class="dropdown-item" style="background-color: red; color: white;" aria-current="page" href="adminpaneli" *ngIf="fbService.OturumAcikken() && kullaniciadi=='admin'"><b>Admin Paneli</b></a></li>
+            <li><a class="dropdown-item" href="girisyap" style="color: red;" (click)="OturumKapat()"*ngIf="fbService.OturumAcikken()">Oturumu Kapat</a></li>
+          </ul>
+      </div>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Ara" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Ara</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<br>
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <a class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+        <svg class="bi" width="30" height="24">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+      </a>
+      <span class="text-muted">© 2021 Company, Inc, All rights reserved.</span>
+    </div>
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/aniltarakci" target="_blank"><img
+            src="assets/instagram.png" class="bi" width="24" height="24"></a></li>
+      <li class="ms-3"><a class="text-muted" href="https://www.twitter.com/aniltarakci00" target="_blank"><img
+            src="assets/twitter.png" class="bi" width="24" height="24"></a></li>
+    </ul>
+  </footer>
+</div>

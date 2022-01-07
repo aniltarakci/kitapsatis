@@ -1,0 +1,49 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+        <a href="adminpaneli" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <span class="fs-4">ADMİN PANELİ</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="urunekle" class="nav-link text-white" aria-current="page">
+              <img src="assets/urunekle.png" alt="" width="32" height="32" class="me-2">
+              Ürün Ekle
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="urunlistele" class="nav-link text-white" aria-current="page">
+              <img src="assets/urunlistele.png" alt="" width="32" height="32" class="me-2">
+              Ürün Listele / Sil
+            </a>
+          </li>
+          <li>
+            <a href="uyeler" class="nav-link text-white">
+              <img src="assets/uyeler.png" alt="" width="32" height="32" class="me-2">
+              Üye Listele / Sil
+            </a>
+          </li>
+        </ul>
+        <hr>
+        <div class="dropdown">
+          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="assets/admin.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>{{kullaniciadi}}</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" href="girisyap" style="color: red;" (click)="OturumKapat()"*ngIf="fbService.OturumAcikken()">Oturumu Kapat</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-md-9">
+      <div class="h-100 p-5 text-white bg-dark rounded-3">
+        <h1 class="text-center">ADMİN PANELİ</h1>
+      </div>
+    </div>
+  </div>
+</div>

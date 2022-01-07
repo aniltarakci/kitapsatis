@@ -1,0 +1,106 @@
+<div class="alert alert-dark text-center" role="alert">
+  <h3>HESAP BİLGİLERİM</h3>
+</div>
+
+<!--
+<div class="container">
+  <div class="row">
+    <form #frm="ngForm">
+      <div class="form-group mb-3">
+        <label for="recipient-name" class="col-form-label">Kullanıcı Adı</label>
+        <input type="text" class="form-control" value="{{uyeler.kullaniciadi}}" disabled>
+      </div>
+      <div class="form-group mb-3">
+        <label for="recipient-name" class="col-form-label">E-Posta Adresi</label>
+        <input type="text" class="form-control" value="{{uyeler.mail}}" disabled>
+      </div>
+      <div class="form-group mb-3">
+        <label for="recipient-name" class="col-form-label">Ad</label>
+        <input type="text" class="form-control" value="{{uyeler.ad}}">
+      </div>
+      <div class="form-group mb-3">
+        <label for="recipient-name" class="col-form-label">Soyad</label>
+        <input type="text" class="form-control" value="{{uyeler.soyad}}">
+      </div>
+      <div class="form-group mb-3">
+        <label for="recipient-name" class="col-form-label">Telefon Numarası</label>
+        <input type="text" class="form-control" value="{{uyeler.telno}}">
+      </div>
+      <div class="form-group mb-3">
+        <label for="recipient-name" class="col-form-label">Adres</label>
+        <input type="text" class="form-control" value="{{uyeler.adres}}">
+      </div>
+      <div class="form-group mb-3">
+        <input type="submit" class="btn btn-warning btn-lg mt-2 mb-2" value="Düzenle">
+      </div>
+    </form>
+    <div [ngClass]="sonuc.islem? 'alert alert-success':'alert alert-danger'" *ngIf="sonuc.mesaj?.length>0">
+      {{sonuc.mesaj}}
+    </div>
+  </div>
+  -->
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-7">
+      <table class="table">
+        <thead>
+          <th>Kullanıcı Adı</th>
+          <th>Mail</th>
+          <th>Adı</th>
+          <th>Soyadı</th>
+          <th>Telefon Numarası</th>
+          <th>Adres</th>
+          <th>Düzenle</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let uye of uyeler">
+            <td>{{uye.kullaniciadi}}</td>
+            <td>{{uye.mail}}</td>
+            <td>{{uye.ad}}</td>
+            <td>{{uye.soyad}}</td>
+            <td>{{uye.telno}}</td>
+            <td>{{uye.adres}}</td>
+            <td><button class="btn btn-warning" (click)="UyeDuzenle(uye)">Düzenle</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4" style="margin-left: 100px;">
+      <form #frm="ngForm" (submit)="Kaydet()">
+        <div class="form-group">
+          <label>Kullanıcı Adı</label>
+          <input type="text" class="form-control" name="kullaniciadi" [(ngModel)]="secUye.kullaniciadi" disabled>
+        </div>
+        <div class="form-group">
+          <label>Mail</label>
+          <input type="text" class="form-control" name="mail" [(ngModel)]="secUye.mail" disabled>
+        </div>
+        <div class="form-group">
+          <label>Adı</label>
+          <input type="text" class="form-control" name="ad" [(ngModel)]="secUye.ad" required>
+        </div>
+        <div class="form-group">
+          <label>Soyadı</label>
+          <input type="text" class="form-control" name="soyad" [(ngModel)]="secUye.soyad" required>
+        </div>
+        <div class="form-group">
+          <label>Telefon Numarası</label>
+          <input type="text" class="form-control" name="telno" [(ngModel)]="secUye.telno" required>
+        </div>
+        <div class="form-group">
+          <label>Adres</label>
+          <textarea type="text" class="form-control" name="adres" [(ngModel)]="secUye.adres" required></textarea>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-success btn-lg mt-2 mb-2" value="Kaydet" [disabled]="frm.invalid">
+        </div>
+      </form>
+      <div [ngClass]="sonuc.islem? 'alert alert-success':'alert alert-danger'" *ngIf="sonuc.mesaj?.length>0">
+        {{sonuc.mesaj}}
+      </div>
+    </div>
+
+  </div>
+</div>

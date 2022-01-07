@@ -1,0 +1,85 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+        <a href="adminpaneli" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+          <span class="fs-4">ADMİN PANELİ</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="urunekle" class="nav-link active" aria-current="page">
+              <img src="assets/urunekle.png" alt="" width="32" height="32" class="me-2">
+              Ürün Ekle
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="urunlistele" class="nav-link text-white" aria-current="page">
+              <img src="assets/urunlistele.png" alt="" width="32" height="32" class="me-2">
+              Ürün Listele / Sil
+            </a>
+          </li>
+          <li>
+            <a href="uyeler" class="nav-link text-white">
+              <img src="assets/uyeler.png" alt="" width="32" height="32" class="me-2">
+              Üye Listele / Sil
+            </a>
+          </li>
+        </ul>
+        <hr>
+        <div class="dropdown">
+          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="assets/admin.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>{{kullaniciadi}}</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" href="girisyap" style="color: red;" (click)="OturumKapat()"
+                *ngIf="fbService.OturumAcikken()">Oturumu Kapat</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="h-100 p-5 text-white bg-dark rounded-3">
+        <form #frm="ngForm" (submit)="UrunEkle()">
+          <div class="form-group mb-3">
+            <label for="recipient-name" class="col-form-label">Ürün ID</label>
+            <input type="text" class="form-control" name="urunid" [(ngModel)]="secUrun.urunid" required>
+          </div>
+          <div class="form-group mb-3">
+            <label for="recipient-name" class="col-form-label">Ürün Adı</label>
+            <input type="text" class="form-control" name="urunadi" [(ngModel)]="secUrun.urunadi" required>
+          </div>
+          <div class="form-group mb-3">
+            <label for="recipient-name" class="col-form-label">Yazar</label>
+            <input type="text" class="form-control" name="yazar" [(ngModel)]="secUrun.yazar" required>
+          </div>
+          <div class="form-group mb-3">
+            <label for="recipient-name" class="col-form-label">Sayfa Sayısı</label>
+            <input type="text" class="form-control" name="sayfasayisi" [(ngModel)]="secUrun.sayfasayisi" required>
+          </div>
+          <div class="form-group mb-3">
+            <label for="recipient-name" class="col-form-label">Ürün Fiyatı</label>
+            <input type="text" class="form-control" name="urunfiyati" [(ngModel)]="secUrun.urunfiyati" required>
+          </div>
+          <div class="form-group mb-3">
+            <label for="recipient-name" class="col-form-label">Kategori</label>
+            <input type="text" class="form-control" name="kategori" [(ngModel)]="secUrun.kategori" required>
+          </div>
+          <div class="form-group mb-3">
+            <label for="recipient-name" class="col-form-label">Resim</label>
+            <input type="file" class="form-control" name="resim" [(ngModel)]="secUrun.resim" required>
+          </div>
+          <div class="form-group mb-3">
+            <input type="submit" class="btn btn-success btn-lg mt-2 mb-2" value="EKLE" [disabled]="frm.invalid">
+          </div>
+        </form>
+        <div [ngClass]="sonuc.islem? 'alert alert-success':'alert alert-danger'" *ngIf="sonuc.mesaj?.length>0">
+          {{sonuc.mesaj}}</div>
+      </div>
+    </div>
